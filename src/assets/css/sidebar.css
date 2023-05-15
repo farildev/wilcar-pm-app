@@ -1,0 +1,35 @@
+.sidebar{
+    width: 20%;
+    height: 100vh;
+    padding: 15px;
+    background-color: #512bd4;
+}
+
+.sidebar .logo{
+    width: 75px;
+}
+.sidebar .logo img{
+    width: 100%;
+}
+.sidebar .side__nav{
+    margin-top: 15px;
+    width: 100%;
+}
+.sidebar .side__nav .nav__list .nav__item{
+    margin: 30px 0;
+
+}
+.sidebar .side__nav .nav__list .nav__item a{
+    color: #fff;
+    font-weight: 500;
+    font-size: 18px;
+    font-family: "Work Sans", sans-serif;
+    transition: 300ms all ease-in-out;
+}
+.sidebar .side__nav .nav__list .nav__item a.active{
+    background-color: #fff;
+    color: #512bd4;
+    padding: 10px;
+    transition: 300ms all ease-in-out;
+    border-radius: 5px;
+}
