@@ -21,6 +21,12 @@ body,html{
     padding: 0 20px;
     margin: 0 auto;
 }
+.sidebar{
+    width: 20%;
+    height: 100vh;
+    padding: 15px;
+    background-color: #512bd4;
+}
 .wrapper-container{
     display: flex;
 }
