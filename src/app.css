@@ -29,8 +29,12 @@ body,html{
 }
 .wrapper-container{
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .wrapper{
     width: 80%;
+    height: 100%;
     padding: 15px;
+    margin-left: 20%;
 }
