@@ -4,7 +4,7 @@ import "../assets/css/card.css";
 function Card({detail}) {
   return (
     <>
-      <div className='row'>
+      <div className='row shadow'>
         <div className="card col-4">
         <img src={detail?.image} className="card-img-top" alt={detail.title} />
         <div className="card-body">
