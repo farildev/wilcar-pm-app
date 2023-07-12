@@ -5,7 +5,6 @@ function Sidebar() {
   return (
     <div className='sidebar'>
       <div className="logo">
-        <img src="" alt="Wrist Media Logo" />
       </div>
       <div className="side__nav">
         <ul className="nav__list">

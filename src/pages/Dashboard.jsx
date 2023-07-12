@@ -1,13 +1,29 @@
 import React from 'react';
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 import "../assets/css/dashboard.css";
 
 function Dashboard() {
+  const [data , setData] = useState({})
+  const navigate = useNavigate()
   const handleSubmit = (e)=>{
     e.preventDefault()
+    fetch(`http://localhost:7000/products` , {
+      method: "POST",
+      headers : {
+        "Content-Type" : "Application/json"
+      },
+      body : JSON.stringify(data),
+    })
+    .then((res) => {
+      if(res.status === 201){
+        navigate("/products")
+      }
+    })
   }
-  const handleInput = ()=>{
-    
+  const handleInput = (e)=>{
+    const {name , value} = e.target
+    setData({...data , [name]:value})
   }
   return (
     <div className='dashboard'>
@@ -15,26 +31,26 @@ function Dashboard() {
         <div className="header">
           <h2 className='fw-bolder'>Add Products</h2>
         </div>
-        <form className="form__control">
+        <form onSubmit={(e) => {handleSubmit(e)}} className="form__control">
           <div className="row">
             <div className="col-6 mt-2">
-            <input type="text" className="form-control"  placeholder="Enter product name"/>
+            <input type="text" className="form-control" onChange={(e)=>handleInput(e)}  placeholder="Enter product name"/>
             </div>
             <div className="col-6 mt-2">
-            <input type="text" className="form-control"  placeholder="Enter product name"/>
+            <input type="text" className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Enter product name"/>
             </div>
             <div className="col-6 mt-2">
-            <input type="text" className="form-control"  placeholder="Enter product name"/>
+            <input type="text" className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Enter product name"/>
             </div>
             <div className="col-6 mt-2">
-            <input type="text" className="form-control"  placeholder="Enter product name"/>
+            <input type="text" className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Enter product name"/>
             </div>
             <div className="col-6 mt-2">
-            <input type="text" className="form-control"  placeholder="Enter product name"/>
+            <input type="text" className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Enter product name"/>
             </div>
           </div>
           <div className="col-12 mt-4">
-            <button onClick={handleSubmit} className='btn btn-primary'>Add Product</button>
+            <button className='btn btn-primary'>Add Product</button>
           </div>
         </form>
       </div>
