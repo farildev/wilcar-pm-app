@@ -6,7 +6,7 @@ function Dashboard() {
     <div className='dashboard'>
       <div className="row p-2">
         <div className="header">
-          <h1>Add Products</h1>
+          <h2>Add Products</h2>
         </div>
         <div className="form__control col-6 mt-2">
           <input type="text" className="p-2"  placeholder="Enter product name"/>

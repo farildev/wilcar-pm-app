@@ -4,6 +4,7 @@
     align-items: center;
     padding: 20px 0;
     flex-wrap: wrap;
+    height: 100vh;
 }
 .details__img{
     display: flex;
