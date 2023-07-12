@@ -16,9 +16,6 @@ function Sidebar() {
           <li className="nav__item">
             <NavLink to="/products">Products</NavLink>
           </li>
-          <li className="nav__item">
-            <NavLink to="/products/add">Add Products</NavLink>
-          </li>
         </ul>
       </div>
     </div>
