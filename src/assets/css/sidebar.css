@@ -20,7 +20,7 @@
 }
 .sidebar .side__nav .nav__list .nav__item{
     margin: 30px 0;
-
+    width: 100%;
 }
 .sidebar .side__nav .nav__list .nav__item a{
     color: #fff;
