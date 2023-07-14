@@ -34,19 +34,16 @@ function Dashboard() {
         <form onSubmit={(e) => {handleSubmit(e)}} className="form__control">
           <div className="row">
             <div className="col-6 mt-2">
-            <input type="text" className="form-control" onChange={(e)=>handleInput(e)}  placeholder="Enter product name"/>
+            <input type="text" name='title' className="form-control" onChange={(e)=>handleInput(e)}  placeholder="Title"/>
             </div>
             <div className="col-6 mt-2">
-            <input type="text" className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Enter product name"/>
+            <input type="text" name='price' className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Price"/>
             </div>
             <div className="col-6 mt-2">
-            <input type="text" className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Enter product name"/>
+            <input type="text" name='buy' className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Buy"/>
             </div>
             <div className="col-6 mt-2">
-            <input type="text" className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Enter product name"/>
-            </div>
-            <div className="col-6 mt-2">
-            <input type="text" className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Enter product name"/>
+            <input type="text" name='sell' className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Sell"/>
             </div>
           </div>
           <div className="col-12 mt-4">

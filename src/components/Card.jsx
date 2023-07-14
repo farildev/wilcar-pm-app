@@ -9,6 +9,7 @@ function Card({detail}) {
         <div className="card-body">
             <h5 className="card-title">{detail?.title}</h5>
             <p className="card-text">{detail?.description}</p>
+            <span className='card-text'>{detail?.price}</span>
         </div>
         <Link to={`/products/${detail?.id}`} className='btn btn-primary'>View</Link>
         </div>
