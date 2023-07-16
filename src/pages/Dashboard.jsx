@@ -37,13 +37,16 @@ function Dashboard() {
             <input type="text" name='title' className="form-control" onChange={(e)=>handleInput(e)}  placeholder="Title"/>
             </div>
             <div className="col-6 mt-2">
+            <input type="text" name='description' className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Description"/>
+            </div>
+            <div className="col-6 mt-2">
             <input type="text" name='price' className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Price"/>
             </div>
             <div className="col-6 mt-2">
-            <input type="text" name='buy' className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Buy"/>
+            <input type="text" name='category' className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Category"/>
             </div>
             <div className="col-6 mt-2">
-            <input type="text" name='sell' className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Sell"/>
+            <input type="text" name='image' className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Image"/>
             </div>
           </div>
           <div className="col-12 mt-4">

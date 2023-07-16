@@ -9,11 +9,20 @@
       "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
     },
     {
-      "title": "Lada",
-      "price": "120",
-      "buy": "110",
-      "sell": "120",
+      "title": "Salam",
+      "description": "salam",
+      "price": "salam",
+      "category": "salam",
+      "image": "salam",
       "id": 2
+    },
+    {
+      "title": "222",
+      "description": "23232",
+      "price": "323232",
+      "category": "32323232",
+      "image": "https://5.imimg.com/data5/KL/PN/MY-14385536/barcode-scaner.jpg",
+      "id": 3
     }
   ]
 }
