@@ -24,5 +24,15 @@
       "image": "https://5.imimg.com/data5/KL/PN/MY-14385536/barcode-scaner.jpg",
       "id": 3
     }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Men"
+    },
+    {
+      "name": "Salam",
+      "id": 2
+    }
   ]
 }
