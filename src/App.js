@@ -4,6 +4,7 @@ import Sidebar from "./components/Sidebar";
 import Dashboard from "./pages/Dashboard";
 import Products from "./pages/Products";
 import Details from "./pages/Details";
+import Categories from "./pages/Categories";
 import "./app.css";
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <div className="wrapper">
       <Routes>  
         <Route path="/" element={<Dashboard/>}/>
+        <Route path="/categories" element={<Categories/>} />
         <Route path="/products" element={<Products/>} />
         <Route path="/products/:id" element = {<Details />} />
       </Routes>
