@@ -1,5 +1,6 @@
 import React , {useState,useEffect} from 'react';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function Categories() {
   const [categories , setCategories] = useState([]);
   const [input , setInput] = useState("");
@@ -23,6 +24,16 @@ function Categories() {
     })
     .then((res) => {
         if(res.status === 201){
+            toast.info('Category successfully added!', {
+                position: "bottom-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
             return res.json()
         }
     })
@@ -37,6 +48,16 @@ function Categories() {
     })
     .then((res) => {
         if(res.status === 200){
+            toast.info('Category successfully deleted!', {
+                position: "bottom-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
             setCategories(categories.filter(e => e.id !== id))
         }
     })
@@ -44,7 +65,11 @@ function Categories() {
   return (
     <>
         <div className="container">
-            <div className="col-12 mt-2 mb-2">
+            <ToastContainer/>
+            <div className="col-12 header">
+                <h2>Add Category</h2>
+            </div>
+            <div className="col-12 mt-4 mb-2">
                 <form onSubmit={(e)=> handleSubmit(e)} action="" >
                     <div className='row'>
                         <div className="col-10">
