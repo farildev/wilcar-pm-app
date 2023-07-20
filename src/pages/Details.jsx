@@ -17,13 +17,13 @@ function Details() {
       <div className="col-12">
         <Link className='btn btn-primary' to="/products">Go Back</Link>
       </div>
-      <div className="details">
+      <div className="details text-white">
         <div className="details__img col-xxl-6 col-xl-6 col-lg-6 col-md-4 col-sm-12">
           <img src={details?.image} alt={details?.title} />
         </div>
-        <div className="col-xxl-6 mt-5 col-xl-6 col-lg-6 col-md-8 col-sm-12">
+        <div className="col-xxl-6 mt-3 col-xl-6 col-lg-6 col-md-8 col-sm-12">
           <div className="details__category">
-            <span>{details?.category}</span>
+            <span className='text-white bg-primary'>{details?.category}</span>
           </div>
           <div className="details__title">
               <h1>{details?.title}</h1>
@@ -35,7 +35,7 @@ function Details() {
             <span>${details?.price}</span>
           </div>
           <div className="details__btn">
-            <button>Buy product</button>
+            <button className='btn btn-primary'>Buy product</button>
           </div>
         </div>
       </div>

@@ -25,7 +25,6 @@
 }
 .details__category span{
     text-transform: capitalize;
-    background-color: #512bd4;
     padding: 10px;
     border-radius: 5px;
     color: #fff;
@@ -52,7 +51,4 @@
     outline: none;
     border: none;
     border-radius: 5px;
-    background-color: #512bd4;
-    color: #fff;
-
 }
