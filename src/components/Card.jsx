@@ -5,7 +5,7 @@ function Card({detail , deleteItem}) {
   return (
     <div className="container">
       <div className='row'>
-        <div className="card shadow p-4 col-4 mt-2">
+        <div className="card bg-dark text-white shadow p-4 col-4 mt-2">
         <img src={detail?.image} className="card-img-top" alt={detail?.title} />
         <div className="card-body mt-3 ">
             <h5 className="card-title">{detail?.title}</h5>

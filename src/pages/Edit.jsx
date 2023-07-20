@@ -48,21 +48,21 @@ function Edit() {
         <Link className='btn btn-primary' to="/products">Go Back</Link>
       </div>
         <div className="header mt-4">
-          <h2 className='fw-bolder'>Edit Products</h2>
+          <h2 className='fw-bolder text-white'>Edit Products</h2>
         </div>
         <form onSubmit={(e) => {handleSubmit(e)}} className="form__control">
           <div className="row">
             <div className="col-6 mt-2">
-            <input defaultValue={products?.title} type="text" name='title' className="form-control" onChange={(e)=>handleInput(e)}  placeholder="Title"/>
+            <input defaultValue={products?.title} type="text" name='title' className="form-control bg-dark text-white border border-dark" onChange={(e)=>handleInput(e)}  placeholder="Title"/>
             </div>
             <div className="col-6 mt-2">
-            <input defaultValue={products?.description} type="text" name='description' className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Description"/>
+            <input defaultValue={products?.description} type="text" name='description' className="form-control bg-dark text-white border border-dark" onChange={(e)=>handleInput(e)}   placeholder="Description"/>
             </div>
             <div className="col-6 mt-2">
-            <input defaultValue={products?.price} type="text" name='price' className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Price"/>
+            <input defaultValue={products?.price} type="text" name='price' className="form-control bg-dark text-white border border-dark" onChange={(e)=>handleInput(e)}   placeholder="Price"/>
             </div>
             <div className="col-6 mt-2">
-            <select defaultValue={products?.category} className='form-select' name="" id="" onChange={(e)=>handleInput(e)}>
+            <select defaultValue={products?.category} className='form-select bg-dark text-white border border-dark' name="" id="" onChange={(e)=>handleInput(e)}>
               {
                 categories.map((index,key) => (
                   <option className='form-control' key={key} value="option">{index?.name}</option>
@@ -71,7 +71,7 @@ function Edit() {
             </select>
             </div>
             <div className="col-6 mt-2">
-            <input defaultValue={products?.image} type="text" name='image' className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Image"/>
+            <input defaultValue={products?.image} type="text" name='image' className="form-control bg-dark text-white border border-dark" onChange={(e)=>handleInput(e)}   placeholder="Image"/>
             </div>
           </div>
           <div className="col-12 mt-4">

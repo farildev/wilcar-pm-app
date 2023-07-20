@@ -3,7 +3,6 @@ import {useState , useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import "../assets/css/dashboard.css";
 
 function Dashboard() {
   const [data , setData] = useState({})
@@ -58,21 +57,21 @@ function Dashboard() {
       <ToastContainer/>
       <div className="row p-2">
         <div className="header">
-          <h2 className='fw-bolder'>Add Products</h2>
+          <h2 className='text-white'>Add Products</h2>
         </div>
         <form onSubmit={(e) => {handleSubmit(e)}} className="form__control">
           <div className="row">
             <div className="col-6 mt-2">
-            <input type="text" name='title' className="form-control" onChange={(e)=>handleInput(e)}  placeholder="Title"/>
+            <input type="text" name='title' className="form-control bg-dark text-white border border-dark" onChange={(e)=>handleInput(e)}  placeholder="Title"/>
             </div>
             <div className="col-6 mt-2">
-            <input type="text" name='description' className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Description"/>
+            <input type="text" name='description' className="form-control bg-dark text-white border border-dark" onChange={(e)=>handleInput(e)}   placeholder="Description"/>
             </div>
             <div className="col-6 mt-2">
-            <input type="text" name='price' className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Price"/>
+            <input type="text" name='price' className="form-control bg-dark text-white border border-dark" onChange={(e)=>handleInput(e)}   placeholder="Price"/>
             </div>
             <div className="col-6 mt-2">
-            <select className='form-select' name="" id="">
+            <select className='form-select bg-dark text-white border border-dark' name="" id="">
               {
                 categories.map((index,key) => (
                   <option className='form-control' key={key} value="option">{index?.name}</option>
@@ -81,7 +80,7 @@ function Dashboard() {
             </select>
             </div>
             <div className="col-6 mt-2">
-            <input type="file" name='image' className="form-control" onChange={(e)=>handleImage(e)}   placeholder="Image"/>
+            <input type="file" name='image' className="form-control bg-dark text-white border border-dark" onChange={(e)=>handleImage(e)}   placeholder="Image"/>
             </div>
           </div>
           <div className="col-12 mt-4">
