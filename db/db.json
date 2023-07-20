@@ -1,38 +1,31 @@
 {
   "products": [
     {
-      "id": 1,
-      "title": "Lada Vaz Stop",
-      "price": 120,
-      "buy": 110,
-      "sell": 120,
-      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-    },
-    {
-      "title": "Salam",
-      "description": "salam",
-      "price": "salam",
-      "category": "salam",
-      "image": "salam",
-      "id": 2
-    },
-    {
-      "title": "222",
-      "description": "23232",
-      "price": "323232",
-      "category": "32323232",
-      "image": "https://5.imimg.com/data5/KL/PN/MY-14385536/barcode-scaner.jpg",
-      "id": 3
+      "title": "EA FC24",
+      "price": "129.99",
+      "category": "Gaming",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      "image": "https://target.scene7.com/is/image/Target/GUEST_21c07372-c01e-457b-9a9f-d50b0bc8f468?wid=488&hei=488&fmt=pjpeg",
+      "id": 4
     }
   ],
   "categories": [
     {
-      "id": 1,
-      "name": "Men"
+      "name": "Men",
+      "id": 1
     },
     {
-      "name": "Salam",
+      "name": "Women",
       "id": 2
+    },
+    {
+      "name": "Electronics",
+      "id": 3
+    }
+    ,
+    {
+      "name": "Gaming",
+      "id": 4
     }
   ]
 }

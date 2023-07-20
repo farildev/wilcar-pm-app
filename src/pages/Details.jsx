@@ -1,5 +1,5 @@
 import React from 'react'
-import {useParams} from "react-router-dom";
+import {useParams,Link} from "react-router-dom";
 import {useState, useEffect} from "react";
 import "../assets/css/details.css";
 function Details() {
@@ -14,6 +14,9 @@ function Details() {
   return (
     <>
     <div className='container'>
+      <div className="col-12">
+        <Link className='btn btn-primary' to="/products">Go Back</Link>
+      </div>
       <div className="details">
         <div className="details__img col-xxl-6 col-xl-6 col-lg-6 col-md-4 col-sm-12">
           <img src={details?.image} alt={details?.title} />

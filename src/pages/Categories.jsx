@@ -28,6 +28,7 @@ function Categories() {
     })
     .then((a) => setCategories([...categories , a]))
     .catch(console.log("error"))
+    setInput('');
   }
 
   const deleteItem = (id) => {
@@ -47,7 +48,7 @@ function Categories() {
                 <form onSubmit={(e)=> handleSubmit(e)} action="" >
                     <div className='row'>
                         <div className="col-10">
-                            <input className='p-2 w-100' type="text" placeholder='Add category' name='category' onChange={(e)=> setInput(e.target.value)} />
+                            <input className='form-control p-2 w-100' type="text" placeholder='Add category' name='category' onChange={(e)=> setInput(e.target.value)} />
                         </div>
                         <div className="col-2">
                             <button className='btn btn-success p-2'>Add Category</button>
@@ -67,12 +68,9 @@ function Categories() {
                             categories.map((index,key) => (
                                 <tr key={key}>
                                     <td className='col-2'>{key + 1}</td>
-                                    <td className='col-2'>{index.name}</td>
-                                    <td className='col-8'>
-                                        <div className="btn-group">
+                                    <td className='col-8'>{index.name}</td>
+                                    <td className='col-2'>
                                             <div className="btn btn-danger" onClick={()=>deleteItem(index?.id)}>Delete</div>
-                                            <div className="btn btn-warning">Edit</div>
-                                        </div>
                                     </td>
                                 </tr>
                             ))

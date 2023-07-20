@@ -1,11 +1,19 @@
 import React from 'react';
-import {useState} from "react";
+import {useState , useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import "../assets/css/dashboard.css";
 
 function Dashboard() {
   const [data , setData] = useState({})
+  const [categories , setCategories] = useState([])
   const navigate = useNavigate()
+
+  useEffect(() => {
+    fetch(`http://localhost:7000/categories`)
+    .then((res) => res.json())
+    .then((data) => setCategories(data));
+  },[])
+
   const handleSubmit = (e)=>{
     e.preventDefault()
     fetch(`http://localhost:7000/products` , {
@@ -43,7 +51,13 @@ function Dashboard() {
             <input type="text" name='price' className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Price"/>
             </div>
             <div className="col-6 mt-2">
-            <input type="text" name='category' className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Category"/>
+            <select name="" id="">
+              {
+                categories.map((index,key) => (
+                  <option className='form-control' key={key} value="option">{index?.name}</option>
+                ))
+              }
+            </select>
             </div>
             <div className="col-6 mt-2">
             <input type="text" name='image' className="form-control" onChange={(e)=>handleInput(e)}   placeholder="Image"/>
