@@ -35,7 +35,17 @@ function Products() {
   return (
     <div className='products container'>
       <ToastContainer />
+      <div className="col-12 mt-3">
       <div className="row">
+      <div className="col-10">
+          <input className='form-control bg-dark text-white border border-dark col-12' type="search" name="search" placeholder='Axtarış' />
+        </div>
+        <div className="col-2">
+          <button className="btn btn-primary col-12">Axtar</button>
+        </div>
+      </div>
+      </div>
+      <div className="row mt-3">
       {
         products.map((index,key)=>(
           <Card key={key} detail = {index} deleteItem = {deleteItem} />

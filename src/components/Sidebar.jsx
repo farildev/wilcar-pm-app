@@ -5,6 +5,8 @@ import logo from "../assets/img/Faril Mammadov 1.png";
 import {MdDashboard} from "react-icons/md";
 import {MdInventory} from "react-icons/md";
 import {MdCategory} from "react-icons/md";
+import {MdSell} from "react-icons/md";
+import {AiFillSetting} from "react-icons/ai";
 import {IconContext} from "react-icons";
 
 function Sidebar() {
@@ -21,19 +23,31 @@ function Sidebar() {
               <li className="nav__item  w-100">
                 <NavLink to="/">
                 {<MdDashboard/>}
-                  Dashboard
+                  Əlavə et
                   </NavLink>
               </li>
               <li className="nav__item">
                 <NavLink to="/products">
                 {<MdInventory/>}
-                  Products
+                  Məhsullar
                   </NavLink>
               </li>
               <li className="nav__item">
                 <NavLink to="/categories">
                 {<MdCategory/>}
-                  Categories
+                  Kateqoriya
+                  </NavLink>
+              </li>
+              <li className="nav__item">
+                <NavLink to="/selling">
+                {<MdSell/>}
+                  Satış
+                  </NavLink>
+              </li>
+              <li className="nav__item">
+                <NavLink to="/configuration">
+                {<AiFillSetting/>}
+                  Parametrlər
                   </NavLink>
               </li>
               </IconContext.Provider>
