@@ -4,7 +4,7 @@ import "../assets/css/card.css";
 function Card({detail , deleteItem}) {
   return (
     <div className="container">
-      <div className='row'>
+      {/* <div className='row'>
         <div className="card bg-dark text-white shadow p-4 col-4 mt-2">
         <img src={detail?.image} className="card-img-top" alt={detail?.title} />
         <div className="card-body mt-3 ">
@@ -20,7 +20,7 @@ function Card({detail , deleteItem}) {
           </div>
         </div>
         </div>
-    </div>
+    </div> */}
     </div>
   )
 }

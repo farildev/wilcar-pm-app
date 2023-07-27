@@ -62,13 +62,16 @@ function Dashboard() {
         <form onSubmit={(e) => {handleSubmit(e)}} className="form__control">
           <div className="row">
             <div className="col-6 mt-2">
-            <input type="text" name='title' className="form-control bg-dark text-white border border-dark" onChange={(e)=>handleInput(e)}  placeholder="Title"/>
+            <input type="text" name='title' className="form-control bg-dark text-white border border-dark" onChange={(e)=>handleInput(e)}  placeholder="Malın adı"/>
             </div>
             <div className="col-6 mt-2">
-            <input type="text" name='description' className="form-control bg-dark text-white border border-dark" onChange={(e)=>handleInput(e)}   placeholder="Description"/>
+            <input type="text" name='buy' className="form-control bg-dark text-white border border-dark" onChange={(e)=>handleInput(e)}   placeholder="Alış qiyməti"/>
             </div>
             <div className="col-6 mt-2">
-            <input type="text" name='price' className="form-control bg-dark text-white border border-dark" onChange={(e)=>handleInput(e)}   placeholder="Price"/>
+            <input type="text" name='sell' className="form-control bg-dark text-white border border-dark" onChange={(e)=>handleInput(e)}   placeholder="Satış qiyməti"/>
+            </div>
+            <div className="col-6 mt-2">
+            <input type="text" name='number' className="form-control bg-dark text-white border border-dark" onChange={(e)=>handleInput(e)}   placeholder="Qab nömrəsi"/>
             </div>
             <div className="col-6 mt-2">
             <select className='form-select bg-dark text-white border border-dark' name="" id="">
