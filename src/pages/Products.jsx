@@ -69,7 +69,7 @@ function Products() {
                                     <td className='col-2'>{index?.sell}</td>
                                     <td className='col-2'>{index?.number}</td>
                                     <td className='col-1'>
-                                            <div className="btn btn-danger" onClick={()=>deleteItem(index?.id)}>Delete</div>
+                                            <div className="btn btn-danger" onClick={()=>deleteItem(index?.id)}>Sil</div>
                                     </td>
                                 </tr>
                             ))

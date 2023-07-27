@@ -8,6 +8,7 @@ import {MdCategory} from "react-icons/md";
 import {MdSell} from "react-icons/md";
 import {AiFillSetting} from "react-icons/ai";
 import {IconContext} from "react-icons";
+import {BiSolidExit} from "react-icons/bi";
 
 function Sidebar() {
   return (
@@ -19,7 +20,7 @@ function Sidebar() {
           </div>
           <div className="side__nav">
             <ul className="nav__list">
-              <IconContext.Provider value={{size : "24px" , className : "mr-5"}}>
+              <IconContext.Provider value={{size : "24px" , className : "mr-3"}}>
               <li className="nav__item  w-100">
                 <NavLink to="/">
                 {<MdDashboard/>}
@@ -52,6 +53,9 @@ function Sidebar() {
               </li>
               </IconContext.Provider>
             </ul>
+          </div>
+          <div className="auth">
+              <button>{<BiSolidExit/>}Çıxış et</button>
           </div>
       </div>
     </div>

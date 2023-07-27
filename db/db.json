@@ -13,28 +13,23 @@
       "sell": "130",
       "number": "323",
       "id": 2
+    },
+    {
+      "title": "Niva Disk",
+      "buy": "140",
+      "sell": "175",
+      "number": "223",
+      "id": 3
     }
   ],
   "categories": [
     {
-      "name": "Men",
+      "name": "Nisyə",
       "id": 1
     },
     {
-      "name": "Women",
+      "name": "Nağd",
       "id": 2
-    },
-    {
-      "name": "Electronics",
-      "id": 3
-    },
-    {
-      "name": "Gaming",
-      "id": 4
-    },
-    {
-      "name": "Child",
-      "id": 5
     }
   ]
 }

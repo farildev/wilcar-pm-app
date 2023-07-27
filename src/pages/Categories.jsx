@@ -67,16 +67,16 @@ function Categories() {
         <div className="container">
             <ToastContainer/>
             <div className="col-12 mt-2 header">
-                <h2 className='text-white'>Add Category</h2>
+                <h2 className='text-white'>Kateqoriya əlavə et</h2>
             </div>
             <div className="col-12 mt-4 mb-2">
                 <form onSubmit={(e)=> handleSubmit(e)} action="" >
                     <div className='row'>
                         <div className="col-10">
-                            <input className='form-control bg-dark text-white border border-dark p-2 w-100' type="text" placeholder='Add category' name='category' onChange={(e)=> setInput(e.target.value)} />
+                            <input className='form-control bg-dark text-white border border-dark p-2 w-100' type="text" placeholder='Kateqoriya əlavə et' name='category' onChange={(e)=> setInput(e.target.value)} />
                         </div>
                         <div className="col-2">
-                            <button className='btn btn-primary p-2'>Add Category</button>
+                            <button className='btn btn-primary p-2'>Əlavə et</button>
                         </div>
                     </div>
                 </form>
@@ -84,8 +84,8 @@ function Categories() {
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th>Settings</th>
+                            <th>Satış növü</th>
+                            <th>Əməliyyat</th>
                         </tr>
                     </thead>
                     <tbody>

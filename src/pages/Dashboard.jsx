@@ -57,7 +57,7 @@ function Dashboard() {
       <ToastContainer/>
       <div className="row p-2">
         <div className="header">
-          <h2 className='text-white'>Add Products</h2>
+          <h2 className='text-white'>Məhsul əlavə et</h2>
         </div>
         <form onSubmit={(e) => {handleSubmit(e)}} className="form__control">
           <div className="row">
@@ -87,7 +87,7 @@ function Dashboard() {
             </div>
           </div>
           <div className="col-12 mt-4">
-            <button className='btn btn-primary'>Add Product</button>
+            <button className='btn btn-primary'>Məhsul əlavə et</button>
           </div>
         </form>
       </div>
