@@ -1,27 +1,25 @@
-import React , {useState , useEffect} from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import {Link } from "react-router-dom";
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
 // import Card from '../components/Card';
 import "../assets/css/products.css";
-import { motion } from 'framer-motion';
-
+import { motion } from "framer-motion";
 
 function Products() {
-  const [products , setProducts] = useState([]);
-  const [search , setSearch] = useState("");
-  useEffect(()=>{
+  const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState("");
+  useEffect(() => {
     fetch(`http://localhost:7000/products`)
-    .then(res => res.json())
-    .then(data => setProducts(data))
-  },[])
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, []);
   const deleteItem = (id) => {
-    fetch(`http://localhost:7000/products/${id}` , {
-      method : "DELETE"
-    })
-    .then((res) => {
-      if(res.status === 200){
-        toast.error('Product successfully deleted!', {
+    fetch(`http://localhost:7000/products/${id}`, {
+      method: "DELETE",
+    }).then((res) => {
+      if (res.status === 200) {
+        toast.error("Product successfully deleted!", {
           position: "bottom-right",
           autoClose: 3000,
           hideProgressBar: false,
@@ -30,11 +28,11 @@ function Products() {
           draggable: true,
           progress: undefined,
           theme: "dark",
-          });
-        setProducts(products.filter( e => e.id !== id))
+        });
+        setProducts(products.filter((e) => e.id !== id));
       }
-    })
-  }
+    });
+  };
 
   const container = {
     hidden: { opacity: 1, scale: 0 },
@@ -43,66 +41,88 @@ function Products() {
       scale: 1,
       transition: {
         delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
-  }
+        staggerChildren: 0.2,
+      },
+    },
+  };
 
   const item = {
     hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
-      opacity: 1
-    }
-  }
+      opacity: 1,
+    },
+  };
   return (
-    <motion.div variants={container} initial="hidden"
-    animate="visible" className='products container'>
+    <motion.div
+      variants={container}
+      initial="hidden"
+      animate="visible"
+      className="products container"
+    >
       <ToastContainer />
       <motion.div variants={item} className="col-12 mt-3">
-      <div className="row">
-      <div className="col-10">
-          <input onChange={(e) => setSearch(e.target.value)} className='form-control bg-dark text-white border border-dark col-12' type="search" name="search" placeholder='Axtarış' />
+        <div className="row">
+          <div className="col-10">
+            <input
+              onChange={(e) => setSearch(e.target.value)}
+              className="form-control bg-dark text-white border border-dark col-12"
+              type="search"
+              name="search"
+              placeholder="Axtarış"
+            />
+          </div>
         </div>
-      </div>
       </motion.div>
       <motion.div variants={item} className="col-12">
-      <div className="row mt-3">
-        <table className='table table-dark table-hover table-striped shadow-lg mt-4 '>
-                    <thead >
-                        <tr>
-                            <th>#</th>
-                            <th>Malın adı</th>
-                            <th>Alış qiyməti</th>
-                            <th>Satış qiyməti</th>
-                            <th>Qab Nömrəsi</th>
-                            <th>Əməliyyat</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            products.filter((index) =>{
-                              return search.toLowerCase() === "" ? index : index.title.toLowerCase().includes(search)
-                            }).map((index,key) => (
-                                <tr className='col-12' key={key}>
-                                    <td className='col-1'>{key + 1}</td>
-                                    <td className='col-3'>{index?.title}</td>
-                                    <td className='col-2'>{index?.buy}</td>
-                                    <td className='col-2'>{index?.sell}</td>
-                                    <td className='col-2'>{index?.number}</td>
-                                    <td className='col-2 buttons'>
-                                      <Link to={`/products/${index?.id}/edit`} className='btn btn-dark border border-danger text-danger col-5 '>Dəyiş</Link>
-                                      <div className="btn btn-danger col-6" onClick={()=>deleteItem(index?.id)}>Sil</div>
-                                    </td>
-                                </tr>
-                            ))
-                        }
-                    </tbody>
-                </table>
-      </div>
+        <div className="row mt-3">
+          <table className="table table-dark table-hover table-striped shadow-lg mt-4 ">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Malın adı</th>
+                <th>Alış qiyməti</th>
+                <th>Satış qiyməti</th>
+                <th>Qab Nömrəsi</th>
+                <th>Əməliyyat</th>
+              </tr>
+            </thead>
+            <tbody>
+              {products
+                .filter((index) => {
+                  return search.toLowerCase() === ""
+                    ? index
+                    : index.title.toLowerCase().includes(search);
+                })
+                .map((index, key) => (
+                  <tr className="col-12" key={key}>
+                    <td className="col-1">{key + 1}</td>
+                    <td className="col-3">{index?.title}</td>
+                    <td className="col-2">{index?.buy}</td>
+                    <td className="col-2">{index?.sell}</td>
+                    <td className="col-2">{index?.number}</td>
+                    <td className="col-2 buttons">
+                      <Link
+                        to={`/products/${index?.id}/edit`}
+                        className="btn btn-dark border border-danger text-danger col-5 "
+                      >
+                        Dəyiş
+                      </Link>
+                      <div
+                        className="btn btn-danger col-6"
+                        onClick={() => deleteItem(index?.id)}
+                      >
+                        Sil
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
       </motion.div>
-   </motion.div>
-  )
+    </motion.div>
+  );
 }
 
-export default Products
+export default Products;

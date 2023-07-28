@@ -1,11 +1,13 @@
-.card{
+.card {
     background-color: #e9e9e9;
     padding: 1rem;
 }
-.card img{
+
+.card img {
     height: 150px;
     object-fit: contain;
 }
-.card-body .card-title{
+
+.card-body .card-title {
     font-size: 25px;
 }

@@ -1,8 +1,9 @@
-.products{
+.products {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.buttons .btn-dark{
+
+.buttons .btn-dark {
     margin-right: 5px;
 }

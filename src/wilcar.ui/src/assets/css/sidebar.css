@@ -1,4 +1,4 @@
-.sidebar__main{
+.sidebar__main {
     width: 18%;
     position: fixed;
     top: 0;
@@ -6,7 +6,8 @@
     height: 100vh;
     padding: 10px;
 }
-.sidebar__container{
+
+.sidebar__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -14,33 +15,39 @@
     height: 100%;
     width: 100%;
 }
-.logo{
+
+.logo {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.logo img{
-    width: 225px;    
+
+.logo img {
+    width: 225px;
     object-fit: contain;
     object-position: center;
 }
-.side__nav{
+
+.side__nav {
     display: flex;
     align-items: center;
     margin-right: 50px;
     height: 100%;
 }
-.side__nav .nav__list{
+
+.side__nav .nav__list {
     margin-top: 10px;
     width: 100%;
 }
-.side__nav .nav__list .nav__item{
+
+.side__nav .nav__list .nav__item {
     margin-top: 15px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
-.side__nav .nav__list .nav__item a{
+
+.side__nav .nav__list .nav__item a {
     color: #fff;
     font-weight: 500;
     font-size: 1.1rem;
@@ -48,24 +55,28 @@
     transition: 300ms all ease-in-out;
     padding: 10px;
 }
-.side__nav .nav__list .nav__item span{
+
+.side__nav .nav__list .nav__item span {
     margin-left: 5px;
 }
-.side__nav .nav__list .nav__item a.active{
+
+.side__nav .nav__list .nav__item a.active {
     background-color: #1c1c1c;
     color: #fff;
     padding: 15px;
     transition: 300ms all ease-in-out;
     border-radius: 5px;
 }
-.auth{
+
+.auth {
     margin-bottom: 50px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.auth button{
+
+.auth button {
     background-color: transparent;
     border: none;
     outline: none;
