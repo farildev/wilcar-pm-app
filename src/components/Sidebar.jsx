@@ -5,59 +5,88 @@ import logo from "../assets/img/Faril Mammadov 1.png";
 import {MdDashboard} from "react-icons/md";
 import {MdInventory} from "react-icons/md";
 import {MdCategory} from "react-icons/md";
-import {MdSell} from "react-icons/md";
 import {AiFillSetting} from "react-icons/ai";
 import {IconContext} from "react-icons";
 import {BiSolidExit} from "react-icons/bi";
+import {AiTwotoneHome} from "react-icons/ai";
+import { motion } from 'framer-motion';
 
 function Sidebar() {
+  const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2
+      }
+    }
+  }
+
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+  }
+
   return (
     <>
       <div className='sidebar__main bg-primary'>
-        <div className="sidebar__container">
-          <div className="logo">
+        <motion.div
+        variants={container}
+        initial="hidden"
+        animate="visible"
+         className="sidebar__container">
+          <motion.div variants={item} className="logo">
           <img src={logo} alt="Logo" />
-          </div>
-          <div className="side__nav">
+          </motion.div>
+          <motion.div
+          variants={container}
+          initial="hidden"
+          animate="visible"
+           className="side__nav">
             <ul className="nav__list">
               <IconContext.Provider value={{size : "24px" , className : "mr-3"}}>
-              <li className="nav__item  w-100">
+              <motion.li variants={item} className="nav__item  w-100">
                 <NavLink to="/">
-                {<MdDashboard/>}
-                  Əlavə et
+                {<AiTwotoneHome/>}
+                  <span>Ana Səhifə</span>
                   </NavLink>
-              </li>
-              <li className="nav__item">
+              </motion.li>
+              <motion.li variants={item} className="nav__item  w-100">
+                <NavLink to="/dashboard">
+                {<MdDashboard/>}
+                  <span>Əlavə et</span>
+                  </NavLink>
+              </motion.li>
+              <motion.li variants={item} className="nav__item">
                 <NavLink to="/products">
                 {<MdInventory/>}
-                  Məhsullar
+                  <span>Məhsullar</span>
                   </NavLink>
-              </li>
-              <li className="nav__item">
+              </motion.li>
+              <motion.li variants={item} className="nav__item">
                 <NavLink to="/categories">
                 {<MdCategory/>}
-                  Kateqoriya
+                  <span>Kateqoriya</span>
                   </NavLink>
-              </li>
-              <li className="nav__item">
-                <NavLink to="/selling">
-                {<MdSell/>}
-                  Satış
-                  </NavLink>
-              </li>
-              <li className="nav__item">
+              </motion.li>
+              <motion.li variants={item} className="nav__item">
                 <NavLink to="/configuration">
                 {<AiFillSetting/>}
-                  Parametrlər
+                  <span>Parametrlər</span>
                   </NavLink>
-              </li>
+              </motion.li>
               </IconContext.Provider>
             </ul>
-          </div>
-          <div className="auth">
+          </motion.div>
+          <motion.div variants={item} className="auth">
               <button>{<BiSolidExit/>}Çıxış et</button>
-          </div>
-      </div>
+          </motion.div>
+      </motion.div>
     </div>
     </>
   )

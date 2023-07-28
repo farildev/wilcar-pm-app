@@ -1,6 +1,7 @@
 import React from 'react';
 import {useState , useEffect} from "react";
 import {useNavigate} from "react-router-dom";
+import {motion} from "framer-motion"; 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -44,18 +45,39 @@ function Dashboard() {
     setData({...data , [name]:value})
   }
 
-  const handleImage = (e) => {
-    let files = e.target.files
-    let res = new FileReader()
-    res.readAsDataURL(files[0])
-    res.onload = (e) => {
-      setData({...data , image : e.target.result})
+  // const handleImage = (e) => {
+  //   let files = e.target.files
+  //   let res = new FileReader()
+  //   res.readAsDataURL(files[0])
+  //   res.onload = (e) => {
+  //     setData({...data , image : e.target.result})
+  //   }
+  // }
+
+  const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2
+      }
+    }
+  }
+
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1
     }
   }
   return (
-    <div className='container'>
+    <motion.div variants={container} initial="hidden"
+    animate="visible" className='container'>
       <ToastContainer/>
-      <div className="row p-2">
+      <motion.div variants={item} className="row p-2">
         <div className="header">
           <h2 className='text-white'>Məhsul əlavə et</h2>
         </div>
@@ -74,7 +96,7 @@ function Dashboard() {
             <input type="text" name='number' className="form-control bg-dark text-white border border-dark" onChange={(e)=>handleInput(e)}   placeholder="Qab nömrəsi"/>
             </div>
             <div className="col-6 mt-2">
-            <select className='form-select bg-dark text-white border border-dark' name="" id="">
+            <select className='form-select bg-dark text-white border border-dark' name="select" id="">
               {
                 categories.map((index,key) => (
                   <option className='form-control' key={key} value="option">{index?.name}</option>
@@ -82,16 +104,16 @@ function Dashboard() {
               }
             </select>
             </div>
-            <div className="col-6 mt-2">
+            {/* <div className="col-6 mt-2">
             <input type="file" name='image' className="form-control bg-dark text-white border border-dark" onChange={(e)=>handleImage(e)}   placeholder="Image"/>
-            </div>
+            </div> */}
           </div>
           <div className="col-12 mt-4">
             <button className='btn btn-primary'>Məhsul əlavə et</button>
           </div>
         </form>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   )
 }
 

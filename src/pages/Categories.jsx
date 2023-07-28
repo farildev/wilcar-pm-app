@@ -1,6 +1,7 @@
 import React , {useState,useEffect} from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {motion} from "framer-motion";
 function Categories() {
   const [categories , setCategories] = useState([]);
   const [input , setInput] = useState("");
@@ -12,7 +13,7 @@ function Categories() {
   })
   const handleSubmit = (e) =>{
     e.preventDefault();
-    let data = {
+    let data = {  
         name : input
     }
     fetch(`http://localhost:7000/categories` , {
@@ -62,14 +63,35 @@ function Categories() {
         }
     })
   }
+
+  const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2
+      }
+    }
+  }
+
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+  }
   return (
     <>
-        <div className="container">
+        <motion.div variants={container} initial="hidden"
+        animate="visible" className="container">
             <ToastContainer/>
-            <div className="col-12 mt-2 header">
+            <motion.div variants={item} className="col-12 mt-2 header">
                 <h2 className='text-white'>Kateqoriya əlavə et</h2>
-            </div>
-            <div className="col-12 mt-4 mb-2">
+            </motion.div>
+            <motion.div variants={item} className="col-12 mt-4 mb-2">
                 <form onSubmit={(e)=> handleSubmit(e)} action="" >
                     <div className='row'>
                         <div className="col-10">
@@ -102,8 +124,8 @@ function Categories() {
                         }
                     </tbody>
                 </table>
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
     </>
   )
 }

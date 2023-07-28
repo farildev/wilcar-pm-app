@@ -6,7 +6,7 @@ import Products from "./pages/Products";
 import Details from "./pages/Details";
 import Categories from "./pages/Categories";
 import Configuration from "./pages/Configuration";
-import Selling from "./pages/Selling";
+import Home from "./pages/Home";
 import Edit from "./pages/Edit";
 import "./app.css";
 function App() {
@@ -15,12 +15,12 @@ function App() {
       <Sidebar/>
       <div className="wrapper">
       <Routes>  
-        <Route path="/" element={<Dashboard/>}/>
+      <Route path="/" element={<Home/>}/>
+        <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/categories" element={<Categories/>} />
         <Route path="/products" element={<Products/>} />
         <Route path="/products/:id/view" element = {<Details />} />
         <Route path="/products/:id/edit" element = {<Edit />} />
-        <Route path="/selling" element = {<Selling />} />
         <Route path="/configuration" element = {<Configuration />} />
       </Routes>
       </div>

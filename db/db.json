@@ -1,34 +1,21 @@
 {
   "products": [
     {
-      "title": "Niva stop",
-      "buy": 59.99,
-      "sell": 79.99,
-      "number": 59,
+      "title": "Niva arxa stop",
+      "buy": "65",
+      "sell": "75",
+      "number": "102",
+      "category": "option",
       "id": 1
-    },
-    {
-      "title": "Sveca",
-      "buy": "120",
-      "sell": "130",
-      "number": "323",
-      "id": 2
-    },
-    {
-      "title": "Niva Disk",
-      "buy": "140",
-      "sell": "175",
-      "number": "223",
-      "id": 3
     }
   ],
   "categories": [
     {
-      "name": "Nisyə",
+      "name": "Stokda var",
       "id": 1
     },
     {
-      "name": "Nağd",
+      "name": "Stokda yoxdur",
       "id": 2
     }
   ]

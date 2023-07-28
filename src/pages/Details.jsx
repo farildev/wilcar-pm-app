@@ -2,6 +2,7 @@ import React from 'react'
 import {useParams,Link} from "react-router-dom";
 import {useState, useEffect} from "react";
 import "../assets/css/details.css";
+import { motion } from 'framer-motion';
 function Details() {
     const {id} = useParams();
     const [details,setDetails] = useState([]);
@@ -13,7 +14,7 @@ function Details() {
     },[id])
   return (
     <>
-    <div className='container'>
+    <motion.div initial={{opacity : 0}} animate={{opacity:1}} className='container'>
       <div className="col-12">
         <Link className='btn btn-primary' to="/products">Go Back</Link>
       </div>
@@ -39,7 +40,7 @@ function Details() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
     </>
   )
 }
