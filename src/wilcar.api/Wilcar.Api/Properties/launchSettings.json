@@ -2,14 +2,14 @@
   "profiles": {
     "wilcar.api": {
       "commandName": "Project",
-      "launchBrowser": false,
+      "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": true,
       "applicationUrl": "http://localhost:4242",
-      "stdoutLogEnabled": false
+      "stdoutLogEnabled": true
     }
   },
   "$schema": "https://json.schemastore.org/launchsettings.json",

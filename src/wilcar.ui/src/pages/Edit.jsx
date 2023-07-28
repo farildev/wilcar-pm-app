@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import httpService from "../services/httpService.ts";
 
 
 function Edit() {
@@ -12,15 +13,15 @@ function Edit() {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:7000/categories`)
-      .then((res) => res.json())
-      .then((data) => setCategories(data));
-  });
+    httpService.get("/categories")
+      .then((data) => setCategories(data))
+      .catch((error) => console.error("Error fetching categories:", error));
+  }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:7000/products/${id}`)
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
+    httpService.get(`/products/${id}`)
+      .then((data) => setProducts(data))
+      .catch((error) => console.error("Error fetching product:", error));
   }, [id]);
 
   const handleInput = (e) => {
@@ -30,18 +31,15 @@ function Edit() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:7000/products/${id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "Application/json",
-      },
-      body: JSON.stringify(products),
-    }).then((res) => {
-      if (res.status === 200) {
-        navigate("/products");
-      }
-    });
+    httpService.patch(`/products/${id}`, products)
+      .then((response) => {
+        if (response.result) {
+          navigate("/products");
+        }
+      })
+      .catch((error) => console.error("Error updating product:", error));
   };
+
   return (
     <>
       <motion.div

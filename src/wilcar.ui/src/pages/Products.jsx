@@ -5,33 +5,36 @@ import "react-toastify/dist/ReactToastify.css";
 // import Card from '../components/Card';
 import "../assets/css/products.css";
 import { motion } from "framer-motion";
+import httpService from "../services/httpService.ts";
+
 
 function Products() {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
+
   useEffect(() => {
-    fetch(`http://localhost:7000/products`)
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
+    httpService.post("/products")
+      .then((data) => setProducts(data))
+      .catch((error) => console.error("Error fetching products:", error));
   }, []);
   const deleteItem = (id) => {
-    fetch(`http://localhost:7000/products/${id}`, {
-      method: "DELETE",
-    }).then((res) => {
-      if (res.status === 200) {
-        toast.error("Product successfully deleted!", {
-          position: "bottom-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-        setProducts(products.filter((e) => e.id !== id));
-      }
-    });
+    httpService.del(`/products/${id}`)
+      .then((response) => {
+        if (response.result) {
+          toast.error("Product successfully deleted!", {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
+          setProducts(products.filter((e) => e.id !== id));
+        }
+      })
+      .catch((error) => console.error("Error deleting product:", error));
   };
 
   const container = {
