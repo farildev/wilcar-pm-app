@@ -1,0 +1,19 @@
+
+.modal__container{
+    background: #a9a9a9;
+    height: 100vh;
+    width: 100%;
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal{
+    background-color: #1c1c1c;
+}
+.modal__header{
+    
+}

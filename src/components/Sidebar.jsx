@@ -1,11 +1,9 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
 import "../assets/css/sidebar.css";
-import logo from "../assets/img/Faril Mammadov 1.png";
+import logo from "../assets/img/Wilcar Logo.svg";
 import {MdDashboard} from "react-icons/md";
 import {MdInventory} from "react-icons/md";
-import {MdCategory} from "react-icons/md";
-import {AiFillSetting} from "react-icons/ai";
 import {IconContext} from "react-icons";
 import {BiSolidExit} from "react-icons/bi";
 import {AiTwotoneHome} from "react-icons/ai";
@@ -34,7 +32,7 @@ function Sidebar() {
 
   return (
     <>
-      <div className='sidebar__main bg-primary'>
+      <div className='sidebar__main bg-danger'>
         <motion.div
         variants={container}
         initial="hidden"
@@ -66,18 +64,6 @@ function Sidebar() {
                 <NavLink to="/products">
                 {<MdInventory/>}
                   <span>Məhsullar</span>
-                  </NavLink>
-              </motion.li>
-              <motion.li variants={item} className="nav__item">
-                <NavLink to="/categories">
-                {<MdCategory/>}
-                  <span>Kateqoriya</span>
-                  </NavLink>
-              </motion.li>
-              <motion.li variants={item} className="nav__item">
-                <NavLink to="/configuration">
-                {<AiFillSetting/>}
-                  <span>Parametrlər</span>
                   </NavLink>
               </motion.li>
               </IconContext.Provider>

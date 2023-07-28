@@ -46,7 +46,7 @@ function Edit() {
         <motion.div initial={{opacity : 0}} animate={{opacity:1}} className="container">
         <div className="row p-2">
         <div className="col-12">
-        <Link className='btn btn-primary' to="/products">Geri qayıt</Link>
+        <Link className='btn btn-dark text-danger border border-danger border-1' to="/products">Geri qayıt</Link>
       </div>
         <div className="header mt-4">
           <h2 className='fw-bolder text-white'>Məhsulu redaktə et</h2>
@@ -66,20 +66,10 @@ function Edit() {
             <input defaultValue={products?.number} type="text" name='price' className="form-control bg-dark text-white border border-dark" onChange={(e)=>handleInput(e)}   placeholder="Satış qiyməti"/>
             </div>
             <div className="col-6 mt-2">
-            <select defaultValue={products?.number} className='form-select bg-dark text-white border border-dark' name="" id="" onChange={(e)=>handleInput(e)}>
-              {
-                categories.map((index,key) => (
-                  <option className='form-control' key={key} value="option">{index?.name}</option>
-                ))
-              }
-            </select>
             </div>
-            {/* <div className="col-6 mt-2">
-            <input defaultValue={products?.image} type="text" name='image' className="form-control bg-dark text-white border border-dark" onChange={(e)=>handleInput(e)}   placeholder="Image"/>
-            </div> */}
           </div>
           <div className="col-12 mt-4">
-            <button className='btn btn-primary'>Save Product</button>
+            <button className='btn btn-danger'>Qeyd et</button>
           </div>
         </form>
       </div>

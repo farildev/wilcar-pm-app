@@ -90,8 +90,8 @@ function Products() {
                                     <td className='col-2'>{index?.buy}</td>
                                     <td className='col-2'>{index?.sell}</td>
                                     <td className='col-2'>{index?.number}</td>
-                                    <td className='col-2'>
-                                      <Link to={`/products/${index?.id}/edit`} className='btn btn-success col-6 '>Edit</Link>
+                                    <td className='col-2 buttons'>
+                                      <Link to={`/products/${index?.id}/edit`} className='btn btn-dark border border-danger text-danger col-5 '>Dəyiş</Link>
                                       <div className="btn btn-danger col-6" onClick={()=>deleteItem(index?.id)}>Sil</div>
                                     </td>
                                 </tr>

@@ -7,6 +7,13 @@
       "number": "102",
       "category": "option",
       "id": 1
+    },
+    {
+      "title": "sveca",
+      "buy": "35",
+      "sell": "55",
+      "number": "23",
+      "id": 2
     }
   ],
   "categories": [
