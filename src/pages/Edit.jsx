@@ -72,7 +72,7 @@ function Edit() {
                 <input
                   defaultValue={products?.buy}
                   type="text"
-                  name="description"
+                  name="buy"
                   className="form-control bg-dark text-white border border-dark"
                   onChange={(e) => handleInput(e)}
                   placeholder="Alış qiyməti"
@@ -82,7 +82,7 @@ function Edit() {
                 <input
                   defaultValue={products?.sell}
                   type="text"
-                  name="price"
+                  name="sell"
                   className="form-control bg-dark text-white border border-dark"
                   onChange={(e) => handleInput(e)}
                   placeholder="Satış qiyməti"
@@ -92,7 +92,7 @@ function Edit() {
                 <input
                   defaultValue={products?.number}
                   type="text"
-                  name="price"
+                  name="number"
                   className="form-control bg-dark text-white border border-dark"
                   onChange={(e) => handleInput(e)}
                   placeholder="Satış qiyməti"
