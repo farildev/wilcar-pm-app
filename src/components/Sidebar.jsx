@@ -11,6 +11,10 @@ import { motion } from "framer-motion";
 
 
 function Sidebar() {
+  const handleCloseWindow = () => {
+    window.location.href = "about:blank";
+  };
+
   const container = {
     hidden: { opacity: 1, scale: 0 },
     visible: {
@@ -73,7 +77,7 @@ function Sidebar() {
             </ul>
           </motion.div>
           <motion.div variants={item} className="auth">
-            <button>{<BiSolidExit />}Çıxış et</button>
+            <button onClick={handleCloseWindow}>{<BiSolidExit />}Çıxış et</button>
           </motion.div>
         </motion.div>
       </div>
