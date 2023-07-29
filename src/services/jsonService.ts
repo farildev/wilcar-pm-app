@@ -1,5 +1,18 @@
 const baseUrl = "http://localhost:3001";
 
+export async function getProduct(id: string) {
+  try {
+    const response = await fetch(`${baseUrl}/products/${id}`);
+    if (!response.ok) {
+      throw new Error("Network response was not ok.");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching product:", error);
+    throw error;
+  }
+}
+
 export async function getProducts() {
   try {
     const response = await fetch(`${baseUrl}/products`);
@@ -34,24 +47,6 @@ export async function addProduct(data: any) {
   }
 }
 
-
-export async function deleteProduct(id: string) {
-  try {
-    const response = await fetch(`${baseUrl}/products/${id}`, {
-      method: "DELETE",
-    });
-
-    if (!response.ok) {
-      throw new Error("Failed to delete product.");
-    }
-
-    return await response.json();
-  } catch (error) {
-    console.error("Error deleting product:", error);
-    throw error;
-  }
-}
-
 export async function updateProduct(id: string, data: any) {
   try {
     const response = await fetch(`${baseUrl}/products/${id}`, {
@@ -73,15 +68,19 @@ export async function updateProduct(id: string, data: any) {
   }
 }
 
-export async function getProduct(id: string) {
+export async function deleteProduct(id: string) {
   try {
-    const response = await fetch(`${baseUrl}/products/${id}`);
+    const response = await fetch(`${baseUrl}/products/${id}`, {
+      method: "DELETE",
+    });
+
     if (!response.ok) {
-      throw new Error("Network response was not ok.");
+      throw new Error("Failed to delete product.");
     }
+
     return await response.json();
   } catch (error) {
-    console.error("Error fetching product:", error);
+    console.error("Error deleting product:", error);
     throw error;
   }
 }
