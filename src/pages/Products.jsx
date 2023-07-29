@@ -4,24 +4,26 @@ import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import "../assets/css/products.css";
 import { motion } from "framer-motion";
-import { getProducts } from '../services/jsonService.ts';
-import { deleteProduct } from '../services/jsonService.ts';
-
+import { getProducts } from "../services/jsonService.ts";
+import { deleteProduct } from "../services/jsonService.ts";
+import ReactPaginate from "react-paginate";
 
 function Products() {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
+  const [currentPage, setCurrentPage] = useState(0);
+  const productsPerPage = 10;
 
   useEffect(() => {
     getProducts()
-      .then(data => setProducts(data))
-      .catch(error => console.error("Error fetching products:", error));
+      .then((data) => setProducts(data))
+      .catch((error) => console.error("Error fetching products:", error));
   }, []);
 
   const deleteItem = (id) => {
     deleteProduct(id)
       .then(() => {
-        toast.error('Product successfully deleted!', {
+        toast.error("Product successfully deleted!", {
           position: "bottom-right",
           autoClose: 3000,
           hideProgressBar: false,
@@ -31,10 +33,29 @@ function Products() {
           progress: undefined,
           theme: "dark",
         });
-        setProducts(products.filter(e => e.id !== id));
+        setProducts(products.filter((e) => e.id !== id));
       })
-      .catch(error => console.error("Error deleting product:", error));
-  }
+      .catch((error) => console.error("Error deleting product:", error));
+  };
+  const filteredProducts = products.filter((index) => {
+    return search.toLowerCase() === ""
+      ? true
+      : index.title.toLowerCase().includes(search);
+  });
+
+  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+
+  const indexOfLastProduct = (currentPage + 1) * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+
+  const currentProducts = filteredProducts.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+
+  const handlePageChange = ({ selected }) => {
+    setCurrentPage(selected);
+  };
 
   const container = {
     hidden: { opacity: 1, scale: 0 },
@@ -90,39 +111,56 @@ function Products() {
               </tr>
             </thead>
             <tbody>
-              {products
-                .filter((index) => {
-                  return search.toLowerCase() === ""
-                    ? index
-                    : index.title.toLowerCase().includes(search);
-                })
-                .map((index, key) => (
-                  <tr className="col-12" key={key}>
-                    <td className="col-1">{key + 1}</td>
-                    <td className="col-3">{index?.title}</td>
-                    <td className="col-2">{index?.buy}</td>
-                    <td className="col-2">{index?.sell}</td>
-                    <td className="col-2">{index?.number}</td>
-                    <td className="col-2 buttons">
-                      <Link
-                        to={`/products/${index?.id}/edit`}
-                        className="btn btn-dark border border-danger text-danger col-5 "
-                      >
-                        Dəyiş
-                      </Link>
-                      <div
-                        className="btn btn-danger col-6"
-                        onClick={() => deleteItem(index?.id)}
-                      >
-                        Sil
-                      </div>
-                    </td>
-                  </tr>
-                ))}
+              {currentProducts.map((index, key) => (
+                <tr className="col-12" key={key}>
+                  <td className="col-1">{key + 1}</td>
+                  <td className="col-3">{index?.title}</td>
+                  <td className="col-2">{index?.buy}</td>
+                  <td className="col-2">{index?.sell}</td>
+                  <td className="col-2">{index?.number}</td>
+                  <td className="col-2 buttons">
+                    <Link
+                      to={`/products/${index?.id}/edit`}
+                      className="btn btn-dark border border-danger text-danger col-5"
+                    >
+                      Dəyiş
+                    </Link>
+                    <div
+                      className="btn btn-danger col-6"
+                      onClick={() => deleteItem(index?.id)}
+                    >
+                      Sil
+                    </div>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
       </motion.div>
+      <div className="row">
+        <div className="col-12 mt-3 d-flex justify-content-center">
+          <ReactPaginate
+            previousLabel={"Əvvəlki"}
+            nextLabel={"Sonraki"}
+            breakLabel={"..."}
+            breakClassName={"page-item"}
+            breakLinkClassName={"page-link"}
+            pageCount={totalPages}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={handlePageChange}
+            containerClassName={"pagination"}
+            activeClassName={"active"}
+            pageClassName={"page-item"}
+            pageLinkClassName={"page-link"}
+            previousClassName={"page-item"}
+            previousLinkClassName={"page-link"}
+            nextClassName={"page-item"}
+            nextLinkClassName={"page-link"}
+          />
+        </div>
+      </div>
     </motion.div>
   );
 }
