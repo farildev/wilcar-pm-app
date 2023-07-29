@@ -7,7 +7,7 @@ import { AiTwotoneHome } from "react-icons/ai";
 import { motion } from "framer-motion";
 
 import "../assets/css/sidebar.css";
-import logo from "../assets/img/wilcar-logo.svg";
+import logo from "../assets/img/wilcar-logo.png";
 
 
 function Sidebar() {

@@ -1,4 +1,50 @@
-.products {
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .pagination .page-item {
+    margin: 0 3px;
+  }
+  
+  .pagination .page-link {
+    color: #ffffff;
+    background-color: #1c1c1c;
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .pagination .page-link:hover {
+    background-color: #212529;
+  }
+  
+  /* Custom styles for selected page button */
+  .pagination .page-item.active .page-link {
+    background-color: #dc3545;
+  }
+  
+  /* Custom styles for previous and next buttons */
+  .pagination .page-item.disabled .page-link,
+  .pagination .page-item.disabled .page-link:hover {
+    color: #ffffff;
+    background-color: #212529;
+    cursor: not-allowed;
+  }
+  
+  .pagination .page-item.previous .page-link,
+  .pagination .page-item.next .page-link {
+    background-color: #dc3545;
+  }
+  
+  .pagination .page-item.previous .page-link:hover,
+  .pagination .page-item.next .page-link:hover {
+    background-color: #dc3545;
+  }
+
+products {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

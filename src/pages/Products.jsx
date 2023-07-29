@@ -127,7 +127,7 @@ function Products() {
                       Dəyiş
                     </Link>
                     <div
-                      className="btn btn-danger col-6"
+                      className="btn btn-danger col-6 btn-delete"
                       onClick={() => deleteItem(index?.id)}
                     >
                       Sil
@@ -143,7 +143,7 @@ function Products() {
         <div className="col-12 mt-3 d-flex justify-content-center">
           <ReactPaginate
             previousLabel={"Əvvəlki"}
-            nextLabel={"Sonraki"}
+            nextLabel={"Növbəti"}
             breakLabel={"..."}
             breakClassName={"page-item"}
             breakLinkClassName={"page-link"}
@@ -151,7 +151,7 @@ function Products() {
             marginPagesDisplayed={2}
             pageRangeDisplayed={5}
             onPageChange={handlePageChange}
-            containerClassName={"pagination"}
+            containerClassName={"pagination custom-pagination"}
             activeClassName={"active"}
             pageClassName={"page-item"}
             pageLinkClassName={"page-link"}
