@@ -1,5 +1,11 @@
 {
-  "products": []
-  "categories": [
+  "products": [
+    {
+      "title": "test",
+      "sell": "test",
+      "buy": "test",
+      "number": "test",
+      "id": 2
+    }
   ]
 }

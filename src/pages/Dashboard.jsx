@@ -3,69 +3,30 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { writeDataToJson, readDataFromJson } from "../services/jsonService.ts";
-
+import { addProduct } from '../services/jsonService.ts';
 
 function Dashboard() {
-  const [formData, setFormData] = useState({
-    title: "",
-    buy: "",
-    sell: "",
-    number: "",
-  });
+  const [data, setData] = useState({});
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
     try {
-      const data = await readDataFromJson();
-      const newProduct = {
-        ...formData,
-        id: Date.now(),
-      };
-  
-      const updatedData = data || { products: [] };
-      updatedData.products.push(newProduct);
-  
-      const jsonData = JSON.stringify(updatedData);
-      const writeResult = await writeDataToJson(jsonData);
-  
-      if (writeResult) {
-        toast.success("Product successfully added!", {
-          position: "bottom-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-  
-        setFormData({
-          title: "",
-          buy: "",
-          sell: "",
-          number: "",
-        });
-  
-        navigate("/products");
-      } else {
-        toast.error("Failed to add product!", {
-          position: "bottom-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
-      }
+      await addProduct(data);
+      toast.success('Product successfully added!', {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      navigate("/products");
     } catch (error) {
       console.error("Error adding product:", error);
-      toast.error("Failed to add product!", {
+      toast.error('Failed to add product!', {
         position: "bottom-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -76,12 +37,11 @@ function Dashboard() {
         theme: "dark",
       });
     }
-  };
-
+  }
 
   const handleInput = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
+    setData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
@@ -126,7 +86,7 @@ function Dashboard() {
                 type="text"
                 name="title"
                 className="form-control bg-dark text-white border border-dark"
-                value={formData.title}
+                value={data.title}
                 onChange={handleInput}
                 placeholder="Malın adı"
               />
@@ -136,7 +96,7 @@ function Dashboard() {
                 type="text"
                 name="buy"
                 className="form-control bg-dark text-white border border-dark"
-                value={formData.buy}
+                value={data.buy}
                 onChange={handleInput}
                 placeholder="Alış qiyməti"
               />
@@ -146,7 +106,7 @@ function Dashboard() {
                 type="text"
                 name="sell"
                 className="form-control bg-dark text-white border border-dark"
-                value={formData.sell}
+                value={data.sell}
                 onChange={handleInput}
                 placeholder="Satış qiyməti"
               />
@@ -156,7 +116,7 @@ function Dashboard() {
                 type="text"
                 name="number"
                 className="form-control bg-dark text-white border border-dark"
-                value={formData.number}
+                value={data.number}
                 onChange={handleInput}
                 placeholder="Qab nömrəsi"
               />

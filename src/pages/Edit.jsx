@@ -2,60 +2,40 @@ import React from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { readDataFromJson, writeDataToJson } from "../services/jsonService.ts";
-
+import { getProducts, updateProduct, deleteProduct } from '../services/jsonService.ts';
 
 function Edit() {
-  const { id } = useParams();
-  const navigate = useNavigate();
+    const { id } = useParams();
+    const navigate = useNavigate();
 
-  const [product, setProduct] = useState({});
-  const [categories, setCategories] = useState([]);
+    const [products, setProducts] = useState({});
+    const [categories, setCategories] = useState([]);
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const data = await readDataFromJson();
-        setCategories(data?.categories || []);
-        const foundProduct = data?.products?.find((item) => item.id === Number(id));
-        setProduct(foundProduct || {});
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+    useEffect(() => {
+        getProducts(id)
+            .then(data => setProducts(data))
+            .catch(error => console.error("Error fetching product:", error));
+
+        // // Assuming you want to fetch categories as well (adjust the URL accordingly)
+        // fetch(`http://localhost:7000/categories`)
+        //     .then(res => res.json())
+        //     .then(data => setCategories(data));
+    }, [id]);
+
+    const handleInput = (e) => {
+        const { name, value } = e.target;
+        setProducts({ ...products, [name]: value });
     }
-    fetchData();
-  }, [id]);
 
-  const handleInput = (e) => {
-    const { name, value } = e.target;
-    setProduct({ ...product, [name]: value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const data = await readDataFromJson();
-  
-      // Check if data.products is defined and is an array, otherwise treat it as an empty array
-      const productsArray = Array.isArray(data.products) ? data.products : [];
-  
-      const updatedProducts = productsArray.map((item) => {
-        if (item.id === product.id) {
-          return product;
-        }
-        return item;
-      });
-  
-      // Update the existing data with the updated products array
-      const updatedData = { ...data, products: updatedProducts };
-  
-      await writeDataToJson(updatedData);
-  
-      navigate("/products");
-    } catch (error) {
-      console.error("Error updating product:", error);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        updateProduct(id, products)
+            .then(() => {
+                navigate("/products");
+            })
+            .catch(error => console.error("Error updating product:", error));
     }
-  };
+
 
   return (
     <>
@@ -85,7 +65,7 @@ function Edit() {
             <div className="row">
               <div className="col-6 mt-2">
                 <input
-                  defaultValue={product?.title}
+                  defaultValue={products?.title}
                   type="text"
                   name="title"
                   className="form-control bg-dark text-white border border-dark"
@@ -95,7 +75,7 @@ function Edit() {
               </div>
               <div className="col-6 mt-2">
                 <input
-                  defaultValue={product?.buy}
+                  defaultValue={products?.buy}
                   type="text"
                   name="description"
                   className="form-control bg-dark text-white border border-dark"
@@ -105,7 +85,7 @@ function Edit() {
               </div>
               <div className="col-6 mt-2">
                 <input
-                  defaultValue={product?.sell}
+                  defaultValue={products?.sell}
                   type="text"
                   name="price"
                   className="form-control bg-dark text-white border border-dark"
@@ -115,7 +95,7 @@ function Edit() {
               </div>
               <div className="col-6 mt-2">
                 <input
-                  defaultValue={product?.number}
+                  defaultValue={products?.number}
                   type="text"
                   name="price"
                   className="form-control bg-dark text-white border border-dark"

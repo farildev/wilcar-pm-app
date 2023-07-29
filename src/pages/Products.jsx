@@ -2,64 +2,39 @@ import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
-// import Card from '../components/Card';
 import "../assets/css/products.css";
 import { motion } from "framer-motion";
-import { readDataFromJson, writeDataToJson } from "../services/jsonService.ts";
-
+import { getProducts } from '../services/jsonService.ts';
+import { deleteProduct } from '../services/jsonService.ts';
 
 
 function Products() {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
 
-  const fetchProducts = async () => {
-    try {
-      const response = await readDataFromJson();
-      const data = response?.products || [];
-      setProducts(data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
   useEffect(() => {
-    fetchProducts();
+    getProducts()
+      .then(data => setProducts(data))
+      .catch(error => console.error("Error fetching products:", error));
   }, []);
 
-  const handleSearchChange = (e) => {
-    setSearch(e.target.value);
-  };
   const deleteItem = (id) => {
-    const newData = { ...readDataFromJson() };
-    newData.products = newData.products.filter((product) => product.id !== id);
-    const writeResult = writeDataToJson(newData);
-
-    if (writeResult) {
-      toast.error("Product successfully deleted!", {
-        position: "bottom-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-      setProducts(newData.products);
-    } else {
-      toast.error("Failed to delete product!", {
-        position: "bottom-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-    }
-  };
+    deleteProduct(id)
+      .then(() => {
+        toast.error('Product successfully deleted!', {
+          position: "bottom-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        setProducts(products.filter(e => e.id !== id));
+      })
+      .catch(error => console.error("Error deleting product:", error));
+  }
 
   const container = {
     hidden: { opacity: 1, scale: 0 },
