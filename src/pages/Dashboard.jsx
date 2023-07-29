@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { addProduct } from '../services/jsonService.ts';
 
+
 function Dashboard() {
   const [data, setData] = useState({});
   const navigate = useNavigate();

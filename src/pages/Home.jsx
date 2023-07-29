@@ -3,6 +3,7 @@ import car1 from "../assets/img/Niva-3.jpeg";
 import car2 from "../assets/img/niva-4.webp";
 import { motion } from "framer-motion";
 
+
 function Home() {
   const container = {
     hidden: { opacity: 1, scale: 0 },

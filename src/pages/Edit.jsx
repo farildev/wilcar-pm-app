@@ -2,14 +2,13 @@ import React from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { getProduct, updateProduct, deleteProduct } from '../services/jsonService.ts';
+import { getProduct, updateProduct } from '../services/jsonService.ts';
 
 function Edit() {
     const { id } = useParams();
     const navigate = useNavigate();
 
     const [products, setProducts] = useState({});
-    const [categories, setCategories] = useState([]);
 
     useEffect(() => {
       getProduct(id)
