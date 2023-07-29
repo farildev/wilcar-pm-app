@@ -1,13 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "../assets/css/sidebar.css";
-import logo from "../assets/img/Wilcar Logo.svg";
-import { MdDashboard } from "react-icons/md";
-import { MdInventory } from "react-icons/md";
+import { MdDashboard, MdInventory } from "react-icons/md";
 import { IconContext } from "react-icons";
 import { BiSolidExit } from "react-icons/bi";
 import { AiTwotoneHome } from "react-icons/ai";
 import { motion } from "framer-motion";
+
+import "../assets/css/sidebar.css";
+import logo from "../assets/img/wilcar-logo.svg";
 
 
 function Sidebar() {

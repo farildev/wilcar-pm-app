@@ -14,7 +14,7 @@ function Dashboard() {
     e.preventDefault();
     try {
       await addProduct(data);
-      toast.success('Product successfully added!', {
+      toast.success('Məhsul uğurla əlavə edildi!', {
         position: "bottom-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -26,8 +26,7 @@ function Dashboard() {
       });
       navigate("/products");
     } catch (error) {
-      console.error("Error adding product:", error);
-      toast.error('Failed to add product!', {
+      toast.error('Məhsul əlavə edərkən xəta oldu:', {
         position: "bottom-right",
         autoClose: 3000,
         hideProgressBar: false,

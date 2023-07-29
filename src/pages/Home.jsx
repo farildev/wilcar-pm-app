@@ -1,5 +1,5 @@
 import React from "react";
-import car1 from "../assets/img/Niva-3.jpeg";
+import car1 from "../assets/img/niva-3.jpeg";
 import car2 from "../assets/img/niva-4.webp";
 import { motion } from "framer-motion";
 

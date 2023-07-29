@@ -1,35 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { getProduct, updateProduct } from '../services/jsonService.ts';
+import { getProduct, updateProduct } from "../services/jsonService.ts";
+
 
 function Edit() {
-    const { id } = useParams();
-    const navigate = useNavigate();
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-    const [products, setProducts] = useState({});
+  const [products, setProducts] = useState({});
 
-    useEffect(() => {
-      getProduct(id)
-          .then(data => setProducts(data))
-          .catch(error => console.error("Error fetching product:", error));
-    }, [id]);
+  useEffect(() => {
+    getProduct(id)
+      .then((data) => setProducts(data))
+      .catch((error) => console.error("Error fetching product:", error));
+  }, [id]);
 
-    const handleInput = (e) => {
-      const { name, value } = e.target;
-      setProducts(prevProducts => ({ ...prevProducts, [name]: value }));
-  }
-
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setProducts((prevProducts) => ({ ...prevProducts, [name]: value }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     updateProduct(id, products)
-        .then(() => {
-            navigate("/products");
-        })
-        .catch(error => console.error("Error updating product:", error));
-}
+      .then(() => {
+        navigate("/products");
+      })
+      .catch((error) => console.error("Error updating product:", error));
+  };
 
   return (
     <>

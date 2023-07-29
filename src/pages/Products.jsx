@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { getProducts, deleteProduct } from "../services/jsonService.ts";
+
 import "react-toastify/dist/ReactToastify.css";
 import "../assets/css/products.css";
-import { motion } from "framer-motion";
-import { getProducts } from "../services/jsonService.ts";
-import { deleteProduct } from "../services/jsonService.ts";
-import ReactPaginate from "react-paginate";
+
 
 function Products() {
   const [products, setProducts] = useState([]);
