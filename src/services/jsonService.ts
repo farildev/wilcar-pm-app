@@ -72,3 +72,16 @@ export async function updateProduct(id: string, data: any) {
     throw error;
   }
 }
+
+export async function getProduct(id: string) {
+  try {
+    const response = await fetch(`${baseUrl}/products/${id}`);
+    if (!response.ok) {
+      throw new Error("Network response was not ok.");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching product:", error);
+    throw error;
+  }
+}

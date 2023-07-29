@@ -2,7 +2,7 @@ import React from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { getProducts, updateProduct, deleteProduct } from '../services/jsonService.ts';
+import { getProduct, updateProduct, deleteProduct } from '../services/jsonService.ts';
 
 function Edit() {
     const { id } = useParams();
@@ -12,30 +12,25 @@ function Edit() {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        getProducts(id)
-            .then(data => setProducts(data))
-            .catch(error => console.error("Error fetching product:", error));
-
-        // // Assuming you want to fetch categories as well (adjust the URL accordingly)
-        // fetch(`http://localhost:7000/categories`)
-        //     .then(res => res.json())
-        //     .then(data => setCategories(data));
+      getProduct(id)
+          .then(data => setProducts(data))
+          .catch(error => console.error("Error fetching product:", error));
     }, [id]);
 
     const handleInput = (e) => {
-        const { name, value } = e.target;
-        setProducts({ ...products, [name]: value });
-    }
+      const { name, value } = e.target;
+      setProducts(prevProducts => ({ ...prevProducts, [name]: value }));
+  }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        updateProduct(id, products)
-            .then(() => {
-                navigate("/products");
-            })
-            .catch(error => console.error("Error updating product:", error));
-    }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateProduct(id, products)
+        .then(() => {
+            navigate("/products");
+        })
+        .catch(error => console.error("Error updating product:", error));
+}
 
   return (
     <>
