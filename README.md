@@ -4,9 +4,6 @@
 
 ### Step 2: Clone the "wilcar-pm-app" Repository
 Open a terminal or command prompt and execute the following command to clone the repository:
-
-### Step 2: Clone the "wilcar-pm-app" Repository
-Open a terminal or command prompt and execute the following command to clone the repository:
 `git clone https://github.com/farildev/wilcar-pm-app/`
 
 ### Step 3: Install Project Dependencies
