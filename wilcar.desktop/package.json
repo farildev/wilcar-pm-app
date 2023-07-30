@@ -1,0 +1,19 @@
+{
+    "name": "wilcar",
+    "version": "1.0.0",
+    "main": "main.js",
+    "type": "commonjs",
+    "scripts": {
+        "start": "electron . --require @babel/register",
+        "build": "electron-builder"
+    },
+    "author": "racozer",
+    "license": "MIT",
+    "devDependencies": {
+        "@babel/cli": "^7.22.9",
+        "@babel/core": "^7.22.9",
+        "@babel/preset-env": "^7.22.9",
+        "electron": "^25.3.2",
+        "electron-builder": "24.6.3"
+    }
+}

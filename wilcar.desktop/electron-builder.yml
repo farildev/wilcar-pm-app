@@ -1,0 +1,7 @@
+appId: test
+productName: Wilcar
+directories:
+  output: dist
+win:
+  target: nsis
+  icon: path/to/your/app.ico

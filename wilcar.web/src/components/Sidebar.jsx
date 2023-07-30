@@ -12,7 +12,7 @@ import logo from "../assets/img/wilcar-logo.png";
 
 function Sidebar() {
   const handleCloseWindow = () => {
-    window.location.href = "about:blank";
+    window.close();
   };
 
   const container = {

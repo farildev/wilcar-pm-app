@@ -14,8 +14,8 @@
     "eslint-config-react-app": "^7.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "cross-env BROWSER=none react-scripts start",
+    "build": "cross-env BROWSER=none react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
